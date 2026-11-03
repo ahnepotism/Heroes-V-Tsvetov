@@ -11,20 +11,20 @@ public:
 
 class Squire : public HeavenUnit {
 public:
-	Squire(int x, int y) : HeavenUnit(Health(120), Armor(30), Attack(12), x, y, 'Ë') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<Squire>(*this); }
+	Squire(int x, int y) : HeavenUnit(Health(120), Armor(30), Attack(12), Faction::Haven, x, y, 'Ë') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<Squire>(*this); }
 	std::string get_type() const override { return "Squire (Haven)"; }
 };
 class Marksman : public HeavenUnit {
 public:
-	Marksman(int x, int y) : HeavenUnit(Health(75), Armor(12), Attack(24), x, y, 'Á') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<Marksman>(*this); }
+	Marksman(int x, int y) : HeavenUnit(Health(75), Armor(12), Attack(24), Faction::Haven, x, y, 'Á') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<Marksman>(*this); }
 	std::string get_type() const override { return "Marksman (Haven)"; }
 };
 class Archangel : public HeavenUnit {
 public:
-	Archangel(int x, int y) : HeavenUnit(Health(250), Armor(45), Attack(40), x, y, 'À'){}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<Archangel>(*this); }
+	Archangel(int x, int y) : HeavenUnit(Health(250), Armor(45), Attack(40), Faction::Haven, x, y, 'À'){}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<Archangel>(*this); }
 	std::string get_type() const override { return "Archangel (Haven)"; }
 };
 
@@ -33,25 +33,25 @@ public:
 class InfernoUnit : public Unit {
 public:
 	using Unit::Unit;
-	std::string get_type() const override { return "Infetno"; }
+	std::string get_type() const override { return "Inferno"; }
 };
 
 class HornedOverseer : public InfernoUnit {
 public:
-	HornedOverseer(int x, int y) : InfernoUnit(Health(130), Armor(10), Attack(16), x, y, 'Ð') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<HornedOverseer>(*this); }
+	HornedOverseer(int x, int y) : InfernoUnit(Health(130), Armor(10), Attack(16), Faction::Inferno, x, y, 'Ð') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<HornedOverseer>(*this); }
 	std::string get_type() const override { return "Horned Overseer (Inferno)"; }
 };
 class SuccubusMistress : public InfernoUnit {
 public:
-	SuccubusMistress(int x, int y) : InfernoUnit(Health(80), Armor(8), Attack(28), x, y, 'Ñ') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<SuccubusMistress>(*this); }
+	SuccubusMistress(int x, int y) : InfernoUnit(Health(80), Armor(8), Attack(28), Faction::Inferno, x, y, 'Ñ') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<SuccubusMistress>(*this); }
 	std::string get_type() const override { return "Succubus Mistress (Inferno)"; }
 };
 class ArchDevil : public InfernoUnit {
 public:
-	ArchDevil(int x, int y) : InfernoUnit(Health(230), Armor(30), Attack(45), x, y, 'Ä') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<ArchDevil>(*this); }
+	ArchDevil(int x, int y) : InfernoUnit(Health(230), Armor(30), Attack(45), Faction::Inferno, x, y, 'Ä') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<ArchDevil>(*this); }
 	std::string get_type() const override { return "ArchDevil (Inferno)"; }
 };
 
@@ -65,20 +65,20 @@ public:
 
 class BladeSinger : public SylvanUnit {
 public:
-	BladeSinger(int x, int y) : SylvanUnit(Health(90), Armor(15), Attack(20), x, y, 'Ò') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<BladeSinger>(*this); }
+	BladeSinger(int x, int y) : SylvanUnit(Health(90), Armor(15), Attack(20), Faction::Sylvan, x, y, 'Ò') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<BladeSinger>(*this); }
 	std::string get_type() const override { return "Blade Singer (Sylvan)"; }
 };
 class MasterBowman : public SylvanUnit {
 public:
-	MasterBowman(int x, int y) : SylvanUnit(Health(70), Armor(6), Attack(32), x, y, 'Ì') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<MasterBowman>(*this); }
+	MasterBowman(int x, int y) : SylvanUnit(Health(70), Armor(6), Attack(32), Faction::Sylvan, x, y, 'Ì') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<MasterBowman>(*this); }
 	std::string get_type() const override { return "Master Bowman (Sylvan)"; }
 };
 class EmeraldDragon : public SylvanUnit {
 public:
-	EmeraldDragon(int x, int y) : SylvanUnit(Health(240), Armor(35), Attack(42), x, y, 'Ý') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<EmeraldDragon>(*this); }
+	EmeraldDragon(int x, int y) : SylvanUnit(Health(240), Armor(35), Attack(42), Faction::Sylvan, x, y, 'Ý') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<EmeraldDragon>(*this); }
 	std::string get_type() const override { return "Emerald Dragon (Sylvan)"; }
 };
 
@@ -92,20 +92,20 @@ public:
 
 class BloodMaiden : public DungeonUnit {
 public:
-	BloodMaiden(int x , int y) : DungeonUnit(Health(85), Armor(5), Attack(24), x, y, 'Ê') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<BloodMaiden>(*this); }
+	BloodMaiden(int x , int y) : DungeonUnit(Health(85), Armor(5), Attack(24), Faction::Dungeon, x, y, 'Ê') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<BloodMaiden>(*this); }
 	std::string get_type() const override { return "Blood Maiden (Dungeon)"; }
 };
 class DarkRaider : public DungeonUnit {
 public:
-	DarkRaider(int x, int y) : DungeonUnit(Health(95), Armor(14), Attack(26), x, y, 'ß') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<DarkRaider>(*this); }
+	DarkRaider(int x, int y) : DungeonUnit(Health(95), Armor(14), Attack(26), Faction::Dungeon, x, y, 'ß') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<DarkRaider>(*this); }
 	std::string get_type() const override { return "Dark Raider (Dungeon)"; }
 };
 class BlackDragon : public DungeonUnit {
 public:
-	BlackDragon(int x, int y ) : DungeonUnit(Health(260), Armor(40), Attack(48), x, y, '¨') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<BlackDragon>(*this); }
+	BlackDragon(int x, int y ) : DungeonUnit(Health(260), Armor(40), Attack(48), Faction::Dungeon, x, y, '¨') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<BlackDragon>(*this); }
 	std::string get_type() const override { return "Black Dragon (Dungeon)"; }
 };
 
@@ -119,21 +119,21 @@ public:
 
 class IronGolem : public AcademyUnit {
 public:
-	IronGolem(int x, int y) : AcademyUnit(Health(160), Armor(35), Attack(10), x, y, 'Ã') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<IronGolem>(*this); }
+	IronGolem(int x, int y) : AcademyUnit(Health(160), Armor(35), Attack(10), Faction::Academy, x, y, 'Ã') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<IronGolem>(*this); }
 	std::string get_type() const override { return "Iron Golem (Academy)"; }
 };
 class ArchMage : public AcademyUnit {
 public:
-	ArchMage(int x, int y) : AcademyUnit(Health(90), Armor(15), Attack(30), x, y, 'Õ') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<ArchMage>(*this); }
+	ArchMage(int x, int y) : AcademyUnit(Health(90), Armor(15), Attack(30), Faction::Academy, x, y, 'Õ') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<ArchMage>(*this); }
 	std::string get_type() const override { return "Arch Mage (Academy)"; }
 	
 };
 class Titan : public AcademyUnit {
 public:
-	Titan(int x, int y) : AcademyUnit(Health(270), Armor(40), Attack(40), x, y, 'È') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<Titan>(*this); }
+	Titan(int x, int y) : AcademyUnit(Health(270), Armor(40), Attack(40), Faction::Academy, x, y, 'È') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<Titan>(*this); }
 	std::string get_type() const override { return "Titan (Academy)"; }
 };
 
@@ -147,20 +147,20 @@ public:
 
 class SkeletonWarrior : public NecropolisUnit {
 public:
-	SkeletonWarrior(int x, int y) : NecropolisUnit(Health(75), Armor(15), Attack(10), x, y, 'Ñ') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<SkeletonWarrior>(*this); }
+	SkeletonWarrior(int x, int y) : NecropolisUnit(Health(75), Armor(15), Attack(10), Faction::Necropolis, x, y, 'Ñ') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<SkeletonWarrior>(*this); }
 	std::string get_type() const override { return "Skeleton Warrior (Necropolis)"; }
 };
 class LichMaster : public NecropolisUnit {
 public:
-	LichMaster(int x, int y) : NecropolisUnit(Health(110), Armor(18), Attack(25), x, y, '×') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<LichMaster>(*this); }
+	LichMaster(int x, int y) : NecropolisUnit(Health(110), Armor(18), Attack(25), Faction::Necropolis, x, y, '×') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<LichMaster>(*this); }
 	std::string get_type() const override { return "Lich Master (Necropolis)"; }
 };
 class SpectralDragon : public NecropolisUnit {
 public:
-	SpectralDragon(int x, int y) : NecropolisUnit(Health(220), Armor(30), Attack(38), x, y, 'Å') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<SpectralDragon>(*this); }
+	SpectralDragon(int x, int y) : NecropolisUnit(Health(220), Armor(30), Attack(38), Faction::Necropolis, x, y, 'Å') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<SpectralDragon>(*this); }
 	std::string get_type() const override { return "Spectral Dragon (Necropolis)"; }
 };
 
@@ -174,19 +174,19 @@ public:
 
 class OrcWarrior : public StrongholdUnit {
 public:
-	OrcWarrior(int x, int y) : StrongholdUnit(Health(140), Armor(12), Attack(18), x, y, 'Î') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<OrcWarrior>(*this); }
+	OrcWarrior(int x, int y) : StrongholdUnit(Health(140), Armor(12), Attack(18), Faction::Stronghold, x, y, 'Î') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<OrcWarrior>(*this); }
 	std::string get_type() const override { return "Orc Warrior (Stronghold)"; }
 };
 class CentaurMarauder : public StrongholdUnit {
 public:
-	CentaurMarauder(int x, int y) : StrongholdUnit(Health(95), Armor(10), Attack(22), x, y, 'Â') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<CentaurMarauder>(*this); }
+	CentaurMarauder(int x, int y) : StrongholdUnit(Health(95), Armor(10), Attack(22), Faction::Stronghold, x, y, 'Â') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<CentaurMarauder>(*this); }
 	std::string get_type() const override { return "Centaur Marauder (Stronghold)"; }
 };
 class UntamedCyclops : public StrongholdUnit {
 public:
-	UntamedCyclops(int x, int y) : StrongholdUnit(Health(300), Armor(25), Attack(50), x, y, 'Ö') {}
-	std::unique_ptr<Unit> clone() const override { return std::make_unique<UntamedCyclops>(*this); }
+	UntamedCyclops(int x, int y) : StrongholdUnit(Health(300), Armor(25), Attack(50), Faction::Stronghold, x, y, 'Ö') {}
+	std::unique_ptr<GameObject> clone() const override { return std::make_unique<UntamedCyclops>(*this); }
 	std::string get_type() const override { return "Untamed Cyclops (Stronghold)"; }
 };

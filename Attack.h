@@ -19,7 +19,7 @@ public:
 		return damage_value;
 	}
 
-	int calculate_damage(const Armor& target_armor) {
+	int calculate_damage(const Armor& target_armor) const {
 		return target_armor.reduce(damage_value);
 	}
 };
